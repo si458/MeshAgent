@@ -25,7 +25,7 @@ jobs:
           "Microsoft.VisualStudio.Component.VC.14.29.16.11.MFC"
         )
         [string]$workloadArgs = $componentsToRemove | ForEach-Object {" --add " +  $_}
-        $Arguments = ('/c', "vs_installer.exe", 'modify', '--installPath', `"$InstallPath`"",$workloadArgs, '--quiet', '--norestart', '--nocache')
+        $Arguments = ('/c', "vs_installer.exe", 'modify', '--installPath', "`"$InstallPath`"",$workloadArgs, '--quiet', '--norestart', '--nocache')
         # should be run twice
         $process = Start-Process -FilePath cmd.exe -ArgumentList $Arguments -Wait -PassThru -WindowStyle Hidden
         $process = Start-Process -FilePath cmd.exe -ArgumentList $Arguments -Wait -PassThru -WindowStyle Hidden
